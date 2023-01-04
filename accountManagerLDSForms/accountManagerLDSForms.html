@@ -1,0 +1,57 @@
+<template>
+    <lightning-card title="Lead Assignment Rule" icon-name="custom:custom15">
+        <b>
+        <template for:each={itemList} for:item="item" for:index="index">
+            <lightning-record-edit-form key={item.id} object-api-name="Assignment_Filter__c">
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                        padding="around-small">
+                        <lightning-input-field field-name="Field_Name__c" variant="label-stacked">
+                        </lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                        padding="around-small">
+                        <lightning-input-field field-name="Operator__c" variant="label-stacked">
+                        </lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                        padding="around-small">
+                        <lightning-input-field field-name="Values__c" >
+                        </lightning-input-field>
+                    </lightning-layout-item>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <div class="slds-p-top_small">
+                            <lightning-icon icon-name="action:new" access-key={item.id} id={index}
+                                alternative-text="Add Row" size="small" title="Add Row" onclick={addRow}>
+                            </lightning-icon>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <lightning-icon icon-name="action:delete" access-key={item.id} id={index}
+                                alternative-text="Delete Row" size="small" title="Delete Row" onclick={removeRow}>
+                            </lightning-icon>
+                        </div>
+
+                </lightning-layout>
+
+            </lightning-record-edit-form>
+
+           
+
+        </template>
+        <lightning-record-edit-form object-api-name={objectApiName} density="Compact">
+            <div class="slds-var-m-around_medium">
+            <lightning-input-field field-name="Asssignment_Mode__c"></lightning-input-field>
+            <lightning-input-field field-name="Source__c"></lightning-input-field>
+            <lightning-input-field field-name="User__c" label="Select User" onchange={handleUserSelection}> </lightning-input-field>
+            <lightning-input-field field-name="Queue__c" label="Select Queue" onchange={handleQueueSelection}> </lightning-input-field>
+            </div>
+        </lightning-record-edit-form>
+        <lightning-layout>
+            <div class="slds-align_absolute-center">
+                <lightning-button variant="success" onclick={handleSuccess} name="submit" label="Submit">
+                </lightning-button>
+            </div>
+        </lightning-layout>
+        </b>
+    </lightning-card>
+</template>

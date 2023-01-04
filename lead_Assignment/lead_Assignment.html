@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Lead Assignment" icon-name="standard:user">
+
+        <!-- <div class="slds-m-around_medium">
+            <template if:true={leadNames}>
+                <template for:each={leadNames} for:item="leaddata">
+                    <p key={leaddata.Id}>{leaddata.Name}</p>
+                </template>
+            </template>
+            <template if:true={errors}>
+                    {errors}
+            </template>
+        </div> -->
+
+        <b>
+        <lightning-record-edit-form object-api-name={objectApiName} onsuccess={handleSuccess} columns="2" density="Compact">
+            <div class="slds-var-m-around_medium">
+            <lightning-input-field field-name="Object__c"></lightning-input-field>
+            <lightning-input-field field-name="Priority__c"></lightning-input-field>
+            <lightning-input-field field-name="Description__c"></lightning-input-field>
+            </div>
+        </lightning-record-edit-form>
+        </b>
+
+
+        <div class="slds-var-m-around_medium">
+        <b> <lightning-input type="toggle" label="Enabled" onchange ={changeHandler}>
+        </lightning-input> </b>
+        
+        <div class="slds-var-m-vertical_medium userInfo">
+            <template if:true={isVisible}>
+                <c-account-manager-l-d-s-forms></c-account-manager-l-d-s-forms>
+            </template>
+            <template if:false={isVisible}>
+                <b>Please Click on Enabled Button!!! </b>
+            </template>
+        </div>
+        </div>
+    </lightning-card>
+
+</template>
