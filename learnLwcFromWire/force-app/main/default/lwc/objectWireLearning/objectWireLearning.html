@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title='Fetching  uiObjectInfoApi function'>
+        <div>
+            Sup NAREN once <br>
+            {a}
+        </div>
+    </lightning-card>
+    <lightning-card title='Fetching  uiObjectInfoApi property'>
+        <div>
+            Sup NAREN twice<br> </div>
+            <template if:true={b.data}>
+                {b.data.labelPlural}
+            </template>      
+    </lightning-card>
+    
+</template>

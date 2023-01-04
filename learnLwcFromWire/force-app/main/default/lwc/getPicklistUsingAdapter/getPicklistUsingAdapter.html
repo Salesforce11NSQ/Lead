@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Sup Naren Fetch Picklist">
+        <div>
+            <lightning-combobox
+            name="progress"
+            label="Rating"
+            value={picklistval}
+            placeholder="Narendra's Shadow"
+            options={options}
+            onchange={handleChange} >
+            </lightning-combobox>
+        </div>
+        <lightning-combobox
+        name="progress"
+        label="Industry"
+        value={secondPick}
+        placeholder="Narendra's Shadow"
+        options={option1}
+        onchange={handleChange} >
+        </lightning-combobox>
+        {picklistval}
+    </lightning-card>
+    <lightning-card title="Navigate to list view">
+        <lightning-button variant="brand" label="Navigate to list view"
+        onclick={navigateToListView}></lightning-button>
+        {secondPick}
+    </lightning-card>
+</template>

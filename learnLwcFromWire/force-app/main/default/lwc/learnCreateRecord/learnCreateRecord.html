@@ -1,0 +1,8 @@
+<template>
+    <lightning-card title="Create Record By Calling Apex">
+        <!--<lightning-input label="Id" ></lightning-input>-->
+        <lightning-input label="AssigneeId" onchange={handleNameChange} class="slds-var-m-bottom_x-small"></lightning-input>
+        <lightning-input label="PermissionSetId" onchange={handleNameChange1} class="slds-var-m-bottom_x-small"></lightning-input>
+        <lightning-button label="create PSA" onclick={onCreatePSA}></lightning-button>
+    </lightning-card>
+</template>

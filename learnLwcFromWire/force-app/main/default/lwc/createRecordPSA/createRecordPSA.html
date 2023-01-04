@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="CREATE RECORD HERE">
+        <form>
+            <lightning-input label="First Name" name="FirstName" onchange={Sone}
+                 class="slds-var-m-bottom_x-small"></lightning-input>
+            <lightning-input label="Last Name" name="LastName" onchange={Sone} 
+                class="slds-var-m-bottom_x-small"></lightning-input>
+           <!-- <lightning-input label="Mobile" name="Mobile" onchange={Sone} 
+                class="slds-m-bottom_x-small"></lightning-input>
+            <lightning-input type="tel"  label="Description" name="Description" onchange={Sone} 
+                class="slds-m-bottom_x-small"></lightning-input>-->
+            <lightning-button label="Create contact" onclick={CreateContact}></lightning-button>
+        </form>
+        
+    </lightning-card>
+</template>

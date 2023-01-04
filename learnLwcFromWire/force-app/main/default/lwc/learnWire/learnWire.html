@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="LEARNING WIRE using Function" >
+        <div class="slds-var-p-around_medium">
+            User Detail Using Wire
+            
+            <template if:true={userInfo}>
+                
+                <div>Email - {userInfo.Email.value} <br></div>
+                
+                <div>Name - {userInfo.Name.value}</div>
+            </template>
+             </div>
+    </lightning-card>
+
+    <lightning-card title="LEARNING WIRE using Property" >
+        <div class="slds-var-p-around_medium">
+            User Detail Using Wire
+            <template if:true={userDetailProperty.data}>
+                <div>Email - {userDetailProperty.data.fields.Email.value}1 <br></div>
+                <div>Name - {userDetailProperty.data.fields.Name.value}2</div>
+            </template>
+             </div>
+    </lightning-card>
+</template>
