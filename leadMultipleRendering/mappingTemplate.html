@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="Lead Mapping">
+        <lightning-layout horizontal-align="center">
+        <lightning-layout-item padding="around-small">
+            <div class="header-column">
+            <lightning-combobox  label="Lead" 
+            placeholder="Select Field"
+            value={Leadvalue} 
+            options={Leadoptions}
+            onchange={LeadhandleChange}>
+            </lightning-combobox>
+            </div>
+        <p>Selected value is {Leadvalue}</p>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" >
+            <div class="header-+column">
+            <lightning-button variant="Success" label="+Map" 
+            title="Successful action" onclick={handleClick} class="slds-m-right_x-small" ></lightning-button>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small">
+
+            <div class="header-column">
+                <lightning-combobox  label="Select  field For Map" 
+                placeholder="Select Field"
+                value={Objectfieldvalue} 
+                options={ObjectLabals}
+                onchange={ObjectfieldhandleChange}
+                >
+                </lightning-combobox>
+            </div>
+            <p>Selected value is {Objectfieldvalue}</p>
+
+         </lightning-layout-item>
+        </lightning-layout>
+         <div class="slds-m-around_medium">
+            <lightning-button variant="destructive"
+            label="Back"
+            title="Back"
+            onclick={handleClick}>
+            </lightning-button>
+         </div>
+    </lightning-card>
+</template>
