@@ -1,0 +1,8 @@
+trigger LeadTrigger on Lead (before insert) {
+    
+
+    if(Trigger.isBefore && Trigger.isInsert){
+        List<Lead> lstLeads = Trigger.New;
+        LeadHandler.assigningToQueue(lstLeads);
+    }
+}
