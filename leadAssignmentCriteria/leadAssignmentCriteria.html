@@ -1,0 +1,125 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:lead" alternative-text="Event" size="small"></lightning-icon>
+            &nbsp;Assignment Rule
+        </h3>
+
+        <lightning-layout horizontal-align="center">
+            <lightning-layout-item size="12" large-device-size="4" padding="around-small"><b>
+                    <lightning-combobox label="Object" value={objvalue} placeholder="Select Object" options={objOptions}
+                        onchange={handleObjectChange} required=true>
+                    </lightning-combobox><br>
+
+                    <lightning-input type="text" label="Rule Name" onchange={handleRuleNameChange}
+                        required=true></lightning-input>
+                    <lightning-textarea type="text" label="Description"
+                        onchange={handleDescriptionChange}></lightning-textarea><br>
+                    <lightning-input type="checkbox" label="Active" onchange={handleCheckBoxChange}></lightning-input>
+                </b></lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout>
+            <lightning-layout-item padding="around-large">
+                <b>Rule Criteria</b>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout horizontal-align="center" multiple-rows>
+            <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                padding="around-small"><b>
+                    <lightning-combobox label="Field Name" value={selectedFieldvalue} placeholder="Select Field"
+                        options={fieldOptions} onchange={handleFieldNameChange}>
+                    </lightning-combobox>
+                </b></lightning-layout-item>
+
+            <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                padding="around-small"><b>
+                    <template if:true={operatorpickVal.data}>
+                        <lightning-combobox label="Operator" value={SelectedOperator} placeholder="Select Operator"
+                            options={operatorpickVal.data.values} onchange={handleOperatorChange}>
+                        </lightning-combobox>
+                    </template>
+                </b></lightning-layout-item>
+
+            <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                padding="around-small"><b>
+                    <lightning-input type="text" label="Value" onchange={handleValueChange}></lightning-input>
+                </b></lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout horizontal-align="center" multiple-rows>
+            <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3"
+                padding="around-small"><b>
+                    <template if:true={modepickVal.data}>
+                        <lightning-combobox label="Assignment Mode" value={SelectedMode} placeholder="Select Mode"
+                            options={modepickVal.data.values} onchange={handleModeChange} required=true>
+                        </lightning-combobox>
+                    </template>
+                </b></lightning-layout-item>
+
+            <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3"
+                padding="around-small"><b>
+                    <template if:true={sourcepickVal.data}>
+                        <lightning-combobox label="Source" value={SelectedSourceValue} placeholder="Select Source"
+                            options={sourcepickVal.data.values} onchange={handleSourceChange} required=true>
+                        </lightning-combobox>
+                    </template>
+                </b></lightning-layout-item>
+        </lightning-layout>
+
+
+        <template if:true={sourceUser}>
+            <lightning-layout horizontal-align="center">
+                <lightning-layout-item size="12" large-device-size="8" padding="around-small"><b>
+                        <div class="header-column">
+                            <lightning-datatable if:true={fetchedUsers.data} key-field="Id" columns={columnForUsers}
+                                data={fetchedUsers.data} onrowselection={handleUserSelected}>
+                            </lightning-datatable>
+                        </div>
+                    </b></lightning-layout-item>
+            </lightning-layout>
+        </template>
+
+        <template if:true={sourceQueue}>
+            <lightning-layout horizontal-align="center">
+                <lightning-layout-item size="12" large-device-size="5" padding="around-small"><b>
+                        <lightning-combobox label="Queues" value={value} placeholder="Select Queue" options={optionss}
+                            onchange={handleQueueChange} required=true>
+                        </lightning-combobox>
+                    </b></lightning-layout-item>
+            </lightning-layout>
+        </template>
+
+        <lightning-layout horizontal-align="center">
+            <lightning-layout-item padding="around-small"><b>
+                    <div class="header-column">
+                        <lightning-button-group horizontal-align="center">
+                            <lightning-button label="Reset" variant="destructive"
+                                onclick={handleReset}></lightning-button>
+                        </lightning-button-group>
+                    </div>
+                </b></lightning-layout-item>
+
+            <lightning-layout-item padding="around-small"><b>
+                    <div class="header-column">
+                        <lightning-button-group horizontal-align="center">
+                            <lightning-button label="Submit" variant="success" onclick={handleSaveRecord}>
+                            </lightning-button>
+                        </lightning-button-group>
+                    </div>
+                </b></lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout horizontal-align="center">
+            <lightning-layout-item padding="around-small"><b>
+                    <div class="header-column">
+                        <lightning-button-group horizontal-align="center">
+                            <lightning-button label="View All Rules" variant="brand" onclick={handleAllRulesClick}>
+                            </lightning-button>
+                        </lightning-button-group>
+                    </div>
+                </b></lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
